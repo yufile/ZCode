@@ -71,6 +71,23 @@ export const OFFICIAL_BROWSER_USE_REQUIRED_SEED_PATHS = [
   "skills/web-gui-tester/SKILL.md",
 ] as const;
 
+const OFFICIAL_ANDROID_REQUIRED_SEED_PATHS = [
+  ".mcp.json",
+  "commands/android-dev.md",
+  "dist/mcp/server.js",
+  "skills/android-dev/INSTALL_ENVIRONMENT.md",
+  "skills/android-dev/SKILL.md",
+] as const;
+
+const OFFICIAL_IOS_REQUIRED_SEED_PATHS = [
+  ".mcp.json",
+  "commands/ios-dev.md",
+  "dist/mcp/server.js",
+  "skills/ios-dev/SKILL.md",
+] as const;
+
+const OFFICIAL_IMAGE_SEARCH_REQUIRED_SEED_PATHS = [".mcp.json"] as const;
+
 const OFFICIAL_CUA_REQUIRED_SEED_PATHS = [
   "docs/computer-use.md",
   "scripts/computer-use-client.mjs",
@@ -117,6 +134,7 @@ export const OFFICIAL_PLUGIN_DEFINITIONS: readonly OfficialPluginDefinition[] = 
       },
     },
     name: "android-emulator",
+    requiredSeedPaths: OFFICIAL_ANDROID_REQUIRED_SEED_PATHS,
     rootCandidates: [
       "packages/android-emulator-plugin",
       "../android-emulator-plugin",
@@ -193,7 +211,7 @@ export const OFFICIAL_PLUGIN_DEFINITIONS: readonly OfficialPluginDefinition[] = 
       description_i18n: { "zh-CN": "查找插图与参考配图。" },
     },
     name: "image-search",
-    requiredSeedPaths: [".mcp.json"],
+    requiredSeedPaths: OFFICIAL_IMAGE_SEARCH_REQUIRED_SEED_PATHS,
     rootCandidates: [
       "packages/image-search-plugin",
       "../image-search-plugin",
@@ -214,6 +232,7 @@ export const OFFICIAL_PLUGIN_DEFINITIONS: readonly OfficialPluginDefinition[] = 
       },
     },
     name: "ios-simulator",
+    requiredSeedPaths: OFFICIAL_IOS_REQUIRED_SEED_PATHS,
     rootCandidates: [
       "packages/ios-simulator-plugin",
       "../ios-simulator-plugin",

@@ -10,7 +10,7 @@ import {
 
 const cliRoot = resolve(import.meta.dirname, "../../..");
 
-test("SEA official plugin assets include the first-party phase-one plugins", async () => {
+test("SEA official plugin assets include all redistributable first-party plugins", async () => {
   const stagingDirectory = await mkdtemp(resolve(tmpdir(), "zcode-official-plugin-assets-test-"));
   try {
     const { manifest } = await collectSeaOfficialPluginAssets({
@@ -20,7 +20,11 @@ test("SEA official plugin assets include the first-party phase-one plugins", asy
     });
 
     const expectedNames = [
+      "android-emulator",
       "browser-use",
+      "computer-use",
+      "image-search",
+      "ios-simulator",
       "node-repl-host",
       "plugin-creator",
       "restore-legacy-sessions",

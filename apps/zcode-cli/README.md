@@ -48,15 +48,19 @@ Plugin state lives under `~/.zcode/cli/plugins`:
 - `data/<plugin-id>/`: persistent plugin data. MCP servers should write runtime output here, not into the plugin source directory.
 - `marketplaces/zcode-plugins-official/`: bundled and CDN partitions plus the merged metadata for the single official marketplace.
 
-This repository also ships built-in official plugins as workspace packages. The bundled Browser Use, Document Skills, Skill Creator, and ZCode Guide content plugins are default-enabled and appear as `browser-use@zcode-plugins-official`, `document-skills@zcode-plugins-official`, `skill-creator@zcode-plugins-official`, and `zcode-guide@zcode-plugins-official`. Runtime-heavy official plugins, and local-data migration plugins such as `ios-simulator@zcode-plugins-official`, `android-emulator@zcode-plugins-official`, and `restore-legacy-sessions@zcode-plugins-official`, are discovered by zcode but stay disabled until the user enables them.
+This repository also ships redistributable official plugins as workspace packages. The bundled Browser Use, Plugin Creator, Skill Creator, ZCode Guide, and Image Search entries appear as `browser-use@zcode-plugins-official`, `plugin-creator@zcode-plugins-official`, `skill-creator@zcode-plugins-official`, `zcode-guide@zcode-plugins-official`, and `image-search@zcode-plugins-official`. Runtime-heavy or platform-bound plugins such as `ios-simulator@zcode-plugins-official`, `android-emulator@zcode-plugins-official`, `computer-use@zcode-plugins-official`, and `restore-legacy-sessions@zcode-plugins-official` are discovered by zcode but stay disabled until the user enables them.
 
 ```sh
 zcode plugins list
 zcode plugins enable ios-simulator
+zcode plugins enable android-emulator
+zcode plugins enable computer-use
 zcode plugins disable browser-use
 zcode plugins enable restore-legacy-sessions
 zcode plugins disable ios-simulator
 ```
+
+Android Emulator requires a local Android SDK/JDK/ADB setup. iOS Simulator requires macOS and Xcode. Computer Use requires the platform Helper and the existing `node_repl` host. Image Search requires a signed-in session and a reachable `ZCODE_BASE_URL` official MCP endpoint.
 
 For local plugin development, put the plugin in any directory, then add it to the user config. Local plugin dirs default to enabled for that config.
 

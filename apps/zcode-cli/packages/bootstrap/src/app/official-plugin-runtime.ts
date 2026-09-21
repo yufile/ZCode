@@ -64,6 +64,9 @@ export function writeOfficialPluginRuntimeManifest(input: OfficialRuntimeManifes
   // 不会进入这个分支，也不会生成独立的 CUA MCP server。
   for (const [serverKey, serverRaw] of Object.entries(mcpServers)) {
     const mcpServer = asRecord(serverRaw);
+    // Image Search 等官方远程 MCP 通过 URL 访问官方服务，不能被当作本地
+    // stdio server 改写为 dist/mcp/server.js，否则插件会在本机启动一个不存在的进程。
+    if (isRemoteMcpServer(mcpServer)) continue;
     const mcpServerEnv = isRecord(mcpServer.env) ? mcpServer.env : {};
     mcpServer.command = process.execPath;
     mcpServer.args = [...hostPrefixArgs, join(input.rootPath, ...MCP_SERVER_RELATIVE_PATH)];
@@ -119,4 +122,8 @@ function asRecord(value: unknown): Record<string, unknown> {
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function isRemoteMcpServer(value: Record<string, unknown>): boolean {
+  return value.type === "http" || value.type === "sse" || typeof value.url === "string";
 }
