@@ -1,9 +1,10 @@
 import type { ZCodePluginStoreListing } from "./zcode-protocol/index.js";
+import { PRODUCT_DISPLAY_NAME } from "./productIdentity.js";
 
 const CANONICAL_PLUGIN_NAME_ACRONYMS: Readonly<Record<string, string>> = {
   aws: "AWS",
   mcp: "MCP",
-  zcode: "ZCode",
+  zcode: PRODUCT_DISPLAY_NAME,
 };
 
 /** listing 的多语言字段先精确匹配，再按语言前缀兜底。 */

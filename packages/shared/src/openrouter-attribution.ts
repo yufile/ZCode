@@ -1,5 +1,7 @@
+import { PRODUCT_DISPLAY_NAME } from "./productIdentity.js";
+
 export const OPENROUTER_ATTRIBUTION_HEADERS = {
-  "X-OpenRouter-Title": "ZCode",
+  "X-OpenRouter-Title": PRODUCT_DISPLAY_NAME,
   "X-OpenRouter-Categories": "programming-app",
 } as const;
 

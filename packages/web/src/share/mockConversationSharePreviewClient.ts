@@ -1,4 +1,8 @@
-import type { ConversationShareAccessMode, ConversationSharePreview } from "@zcode/shared";
+import {
+  PRODUCT_DISPLAY_NAME,
+  type ConversationShareAccessMode,
+  type ConversationSharePreview,
+} from "@zcode/shared";
 import { ConversationSharePreviewClientError } from "./conversationSharePreviewClient.js";
 
 function previewFor(accessMode: ConversationShareAccessMode): ConversationSharePreview {
@@ -30,7 +34,7 @@ function previewFor(accessMode: ConversationShareAccessMode): ConversationShareP
         createdAt: createdAt + 1_000,
         createdAtSeq: 2,
         kind: "assistantText",
-        text: "这是一个公开的 ZCode 会话分享。",
+        text: `这是一个公开的 ${PRODUCT_DISPLAY_NAME} 会话分享。`,
         state: "complete",
       },
       // 让 dev mock 覆盖 artifact 卡片：它的视觉要与正文的 AssistantPreviewCards 对齐，
@@ -108,7 +112,7 @@ export class MockConversationSharePreviewClient {
     if (shareCode === "mock-outdated-client") {
       throw new ConversationSharePreviewClientError({
         kind: "unsupported_schema_version",
-        message: "Share requires a newer ZCode",
+        message: `Share requires a newer ${PRODUCT_DISPLAY_NAME}`,
         status: 200,
       });
     }

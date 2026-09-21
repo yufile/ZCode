@@ -6,6 +6,7 @@ import {
   decodeConversationShareRows,
   isConversationShareSchemaVersionSupported,
   parseConversationSharePathname,
+  PRODUCT_DISPLAY_NAME,
   type ConversationShareApiErrorCode,
   type ConversationSharePreview,
   type Locale,
@@ -244,7 +245,7 @@ export class ConversationSharePreviewClient {
       });
       throw new ConversationSharePreviewClientError({
         kind: "unsupported_schema_version",
-        message: "Conversation share requires a newer ZCode version",
+        message: `Conversation share requires a newer ${PRODUCT_DISPLAY_NAME} version`,
         status: response.status,
       });
     }
