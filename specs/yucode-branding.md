@@ -30,6 +30,8 @@
 - `packages/desktop/scripts/desktop-product-identity.mjs` 持有 electron-builder 所需的打包身份，并复用兼容性的内部 appId。
 - `packages/ui/src/assets/yu-code-logo.png` 与 `yu-code-icon.png` 是 renderer 的品牌图形入口；桌面 `build/`、桌面静态启动页和 Web 公共资源均由同一份素材派生。
 - `packages/web/public/favicon.ico` 是 Web 浏览器标签页的品牌入口。
+- UI 中历史命名的 Logo 导出和桌面 About 窗口也必须消费上述派生资源，不再内嵌独立的旧 SVG。
+- 工作区标题栏、折叠侧栏和 v4 草稿空态背景属于应用 Logo 使用场景，不得借用 provider 图标或旧 Z 图形。
 
 ## 不变量
 
@@ -38,6 +40,7 @@
 3. 所有平台图标必须来自同一份附件素材，且 PNG/ICO/ICNS 的尺寸声明与实际像素一致。
 4. 品牌图形不能通过 UI 直接访问平台 API；renderer 只消费静态资源，桌面原生图标仍由主进程/打包配置负责。
 5. 更换品牌不迁移或删除现有数据，不覆盖用户工作区和未提交的本地改动。
+6. 任何内部 Logo 组件、关于窗口和启动入口不得保留可见的旧 ZCode 图形实现。
 
 ## 验收场景
 

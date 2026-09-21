@@ -215,6 +215,18 @@ function resolveAboutIconPath(isPackaged: boolean): string {
     : join(import.meta.dirname, "../../build/icon.png");
 }
 
+function resolveAboutIconDataUrl(iconPath: string): string | undefined {
+  if (!existsSync(iconPath)) {
+    return undefined;
+  }
+
+  try {
+    return `data:image/png;base64,${readFileSync(iconPath).toString("base64")}`;
+  } catch {
+    return undefined;
+  }
+}
+
 export async function showAboutDialog(
   parentWindow?: BrowserWindow,
   locale: Locale = DEFAULT_LOCALE,
@@ -259,6 +271,7 @@ export async function showAboutDialog(
         applicationName: ABOUT_APPLICATION_NAME,
         appVersion: snapshot.appVersion,
         copyright: formatAboutCopyright(undefined, locale),
+        iconDataUrl: resolveAboutIconDataUrl(iconPath),
         optimizationLine: formatAboutOptimizationLine(snapshot, locale),
         versionLabel: aboutMessages.versionLabel,
         okButtonLabel: aboutMessages.okButtonLabel,
