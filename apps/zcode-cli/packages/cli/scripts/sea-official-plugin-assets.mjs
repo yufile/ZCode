@@ -43,6 +43,58 @@ export const officialSeaPlugins = [
     // 导致发布产物不 seed browser-use，进而无法装配宿主 node_repl MCP。
     version: "0.5.1",
   },
+  {
+    marketplace: "zcode-plugins-official",
+    name: "plugin-creator",
+    packageName: "@zcode/plugin-creator-plugin",
+    requiresRuntime: false,
+    requiredSeedPaths: [
+      "skills/plugin-creator/SKILL.md",
+      "skills/plugin-creator/scripts/create-basic-plugin.mjs",
+      "skills/plugin-creator/scripts/marketplace-files.mjs",
+      "skills/plugin-creator/scripts/scaffold-files.mjs",
+      "skills/plugin-creator/scripts/upsert-dev-marketplace.mjs",
+      "skills/plugin-creator/references/installing-and-updating.md",
+      "skills/plugin-creator/references/plugin-json-spec.md",
+    ],
+    rootPath: join("packages", "plugin-creator-plugin"),
+    version: "0.1.1",
+  },
+  {
+    marketplace: "zcode-plugins-official",
+    name: "restore-legacy-sessions",
+    packageName: "@zcode/restore-legacy-sessions-plugin",
+    requiresRuntime: false,
+    requiredSeedPaths: [
+      "commands/restore-legacy-sessions.md",
+      "skills/restore-legacy-sessions/SKILL.md",
+    ],
+    rootPath: join("packages", "restore-legacy-sessions-plugin"),
+    version: "0.1.0",
+  },
+  {
+    marketplace: "zcode-plugins-official",
+    name: "skill-creator",
+    packageName: "@zcode/skill-creator-plugin",
+    requiresRuntime: false,
+    requiredSeedPaths: ["skills/skill-creator/SKILL.md"],
+    rootPath: join("packages", "skill-creator-plugin"),
+    version: "0.1.0",
+  },
+  {
+    marketplace: "zcode-plugins-official",
+    name: "zcode-guide",
+    packageName: "@zcode/zcode-guide-plugin",
+    requiresRuntime: false,
+    requiredSeedPaths: [
+      "commands/workflow.md",
+      "skills/dynamic-workflows/SKILL.md",
+      "skills/dynamic-workflows/examples.md",
+      "skills/dynamic-workflows/patterns.md",
+    ],
+    rootPath: join("packages", "zcode-guide-plugin"),
+    version: "0.2.0",
+  },
 ];
 
 export const collectSeaOfficialPluginAssets = async ({

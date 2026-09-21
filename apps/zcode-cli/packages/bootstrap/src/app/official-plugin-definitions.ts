@@ -240,6 +240,10 @@ export const OFFICIAL_PLUGIN_DEFINITIONS: readonly OfficialPluginDefinition[] = 
       "../../restore-legacy-sessions-plugin",
       "../../../restore-legacy-sessions-plugin",
     ],
+    requiredSeedPaths: [
+      "commands/restore-legacy-sessions.md",
+      "skills/restore-legacy-sessions/SKILL.md",
+    ],
     version: "0.1.0",
   },
   {
@@ -290,6 +294,7 @@ export const OFFICIAL_PLUGIN_DEFINITIONS: readonly OfficialPluginDefinition[] = 
       "../../skill-creator-plugin",
       "../../../skill-creator-plugin",
     ],
+    requiredSeedPaths: ["skills/skill-creator/SKILL.md"],
     version: "0.1.0",
   },
   {
