@@ -28,8 +28,9 @@
 
 - `packages/shared/src/productIdentity.ts` 持有跨 UI/Web 的用户可见产品名常量。
 - `packages/desktop/scripts/desktop-product-identity.mjs` 持有 electron-builder 所需的打包身份，并复用兼容性的内部 appId。
-- `packages/ui/src/assets/yu-code-logo.png` 与 `yu-code-icon.png` 是 renderer 的品牌图形入口；桌面 `build/`、桌面静态启动页和 Web 公共资源均由同一份素材派生。
-- `packages/web/public/favicon.ico` 是 Web 浏览器标签页的品牌入口。
+- `packages/ui/src/assets/yu-code-logo.svg` 与 `yu-code-icon.svg` 是 renderer 的品牌图形入口；桌面 `build/`、桌面静态启动页、Web 公共资源和原生平台图标均由这两份 SVG 派生。
+- SVG 文件必须使用路径、渐变和滤镜绘制，不得嵌入 JPG/PNG；PNG/ICO/ICNS 只作为原生平台和旧版浏览器的派生兼容格式。
+- `packages/web/public/yu-code-icon.svg` 是 Web 浏览器首选图标入口，`favicon.ico` 是兼容性回退。
 - UI 中历史命名的 Logo 导出和桌面 About 窗口也必须消费上述派生资源，不再内嵌独立的旧 SVG。
 - 工作区标题栏、折叠侧栏和 v4 草稿空态背景属于应用 Logo 使用场景，不得借用 provider 图标或旧 Z 图形。
 
@@ -44,14 +45,16 @@
 
 ## 验收场景
 
-| 场景 | 预期 |
-| --- | --- |
-| 桌面开发启动 | 窗口标题、欢迎页、关于页和窗口/托盘图标显示 yuCode 品牌 |
-| Windows 打包 | 安装器、快捷方式、可执行文件图标使用附件图形；生产包显示 `yuCode`，Preview 显示 `yuCode Preview` |
-| macOS/Linux 打包 | App bundle/AppImage/deb/rpm 使用附件图形，Linux 桌面入口显示 yuCode |
-| Web | 页面 title、登录/分享文案和 favicon 显示 yuCode |
-| 兼容性 | `dev.zcode.app`、`zcode://`、`.zcode` 目录、`@zcode/*` 和 MCP/plugin 标识保持不变 |
-| 资产完整性 | 派生图标可被 Electron、electron-builder、浏览器和原生桌面加载 |
+SVG 以附件的倾斜 yu 字形、连续折叠带面、环绕轨道和四角星为品牌基准；透明背景，避免粗白描边切断字母连接，保留蓝青高光及蓝紫暗部。
+
+| 场景             | 预期                                                                                             |
+| ---------------- | ------------------------------------------------------------------------------------------------ |
+| 桌面开发启动     | 窗口标题、欢迎页、关于页和窗口/托盘图标显示 yuCode 品牌                                          |
+| Windows 打包     | 安装器、快捷方式、可执行文件图标使用附件图形；生产包显示 `yuCode`，Preview 显示 `yuCode Preview` |
+| macOS/Linux 打包 | App bundle/AppImage/deb/rpm 使用附件图形，Linux 桌面入口显示 yuCode                              |
+| Web              | 页面 title、登录/分享文案和 favicon 显示 yuCode                                                  |
+| 兼容性           | `dev.zcode.app`、`zcode://`、`.zcode` 目录、`@zcode/*` 和 MCP/plugin 标识保持不变                |
+| 资产完整性       | 派生图标可被 Electron、electron-builder、浏览器和原生桌面加载                                    |
 
 ## 验证
 

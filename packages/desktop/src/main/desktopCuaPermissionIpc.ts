@@ -19,18 +19,18 @@ import { createSystemSettingsWindowWatcher } from "./cuaSystemSettingsWindowWatc
 const execFileAsync = promisify(execFile);
 const MACOS_SYSTEM_SETTINGS_BUNDLE_ID = "com.apple.systempreferences";
 // 1x1 透明 PNG。startDrag 在 macOS 上要求 icon 非空（electron.d.ts: "The image must be non-empty
-// on macOS"），连随包 ZCode 图标都读不到时用它兜底 —— 否则 startDrag 抛异常，用户完全拖不动。
+// on macOS"），连随包 yuCode 图标都读不到时用它兜底 —— 否则 startDrag 抛异常，用户完全拖不动。
 const CUA_HELPER_DRAG_ICON_DATA_URL =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/p9sAAAAASUVORK5CYII=";
 /** 拖拽光标与浮窗 tile 都用 64pt，避免巨大的光标贴图。 */
 const CUA_DRAG_ICON_SIZE = 64;
 
 /**
- * 拖拽光标与浮窗 tile 共用的 ZCode 图标（模块级缓存，避免每次拖拽读磁盘）。
+ * 拖拽光标与浮窗 tile 共用的 yuCode 图标（模块级缓存，避免每次拖拽读磁盘）。
  *
  * 不能用 `nativeImage.createFromNamedImage("NSApplicationIcon")`：那取的是**当前宿主 app** 的
  * 图标，dev 下宿主是 Electron.app，于是拖拽时显示 Electron 默认图标。
- * 改为显式读随包的 ZCode 图标（electron-builder 已把 build/icon.png 打进 resources/icon.png）。
+ * 改为显式读随包的 yuCode 图标（electron-builder 已把 build/icon.png 打进 resources/icon.png）。
  */
 let cachedZCodeIcon: Electron.NativeImage | null = null;
 
@@ -272,7 +272,7 @@ function createDragPanelForSession(
     getSettingsBounds: () => watcher.latest(),
     stopSettingsBounds: () => watcher.stop(),
     getLocale,
-    // tile 用真实 ZCode 图标，与系统设置权限列表里那一行的图标对得上，用户才能把
+    // tile 用真实 yuCode 图标，与系统设置权限列表里那一行的图标对得上，用户才能把
     // 「要拖的东西」和「要出现在列表里的条目」对应起来。
     getIconDataUrl: () =>
       resolveZCodeIcon()

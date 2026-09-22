@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import yuCodeIconUrl from "@/assets/yu-code-icon.png";
+import yuCodeIconUrl from "@/assets/yu-code-icon.svg";
 import { cn } from "@/components/lib/utils.js";
 
 interface RootStartupLoadingProps {

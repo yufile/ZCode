@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1254 1254" fill="none" role="img" aria-labelledby="yu-title">
+  <title id="yu-title">yuCode</title>
+  <defs>
+    <linearGradient id="orbit" gradientUnits="userSpaceOnUse" x1="370" y1="568" x2="295" y2="1000">
+      <stop stop-color="#13c9ed" stop-opacity="0.12"/>
+      <stop offset=".3" stop-color="#00aeef"/>
+      <stop offset=".66" stop-color="#2241ed"/>
+      <stop offset="1" stop-color="#7020ed"/>
+    </linearGradient>
+    <linearGradient id="orbit-back" gradientUnits="userSpaceOnUse" x1="940" y1="293" x2="1182" y2="475">
+      <stop stop-color="#18c9ef" stop-opacity=".16"/>
+      <stop offset=".34" stop-color="#00b2f2"/>
+      <stop offset=".8" stop-color="#3930e8"/>
+      <stop offset="1" stop-color="#2664ee"/>
+    </linearGradient>
+    <linearGradient id="y-left" gradientUnits="userSpaceOnUse" x1="290" y1="375" x2="395" y2="720">
+      <stop stop-color="#05bbec"/>
+      <stop offset=".25" stop-color="#0075ef"/>
+      <stop offset=".7" stop-color="#0733da"/>
+      <stop offset="1" stop-color="#2411b9"/>
+    </linearGradient>
+    <linearGradient id="y-tail" gradientUnits="userSpaceOnUse" x1="300" y1="910" x2="570" y2="620">
+      <stop stop-color="#07c7df"/>
+      <stop offset=".48" stop-color="#008df1"/>
+      <stop offset="1" stop-color="#0827d6"/>
+    </linearGradient>
+    <linearGradient id="y-fold" gradientUnits="userSpaceOnUse" x1="664" y1="373" x2="420" y2="789">
+      <stop stop-color="#02b8ec"/>
+      <stop offset=".16" stop-color="#2660f3"/>
+      <stop offset=".46" stop-color="#4430ef"/>
+      <stop offset=".8" stop-color="#7645f3"/>
+      <stop offset="1" stop-color="#14c5ed"/>
+    </linearGradient>
+    <linearGradient id="u-inner" gradientUnits="userSpaceOnUse" x1="791" y1="435" x2="715" y2="742">
+      <stop stop-color="#00b8f2"/>
+      <stop offset=".3" stop-color="#0062e9"/>
+      <stop offset="1" stop-color="#1213c8"/>
+    </linearGradient>
+    <linearGradient id="u-face" gradientUnits="userSpaceOnUse" x1="666" y1="826" x2="1090" y2="468">
+      <stop stop-color="#6516eb"/>
+      <stop offset=".36" stop-color="#2b22e4"/>
+      <stop offset=".7" stop-color="#3057ee"/>
+      <stop offset="1" stop-color="#7440ed"/>
+    </linearGradient>
+    <linearGradient id="edge" gradientUnits="userSpaceOnUse" x1="987" y1="900" x2="854" y2="685">
+      <stop stop-color="#00bcf6" stop-opacity=".72"/>
+      <stop offset="1" stop-color="#a066ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="star" gradientUnits="userSpaceOnUse" x1="801" y1="220" x2="955" y2="346">
+      <stop stop-color="#08b7f6"/>
+      <stop offset=".48" stop-color="#315cf5"/>
+      <stop offset="1" stop-color="#9a39ec"/>
+    </linearGradient>
+    <linearGradient id="highlight" x1="0" y1="0" x2=".2" y2="1">
+      <stop stop-color="#82efff" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#6dbaff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="125%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="9" stdDeviation="11" flood-color="#4627cf" flood-opacity=".16"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <!-- 轨道位于字形后方，两端逐渐收尖，保持原图的环绕方向。 -->
+    <path d="M912 331C1025 276 1154 299 1174 371C1194 443 1130 534 1066 605C1183 520 1235 431 1211 360C1184 273 1056 264 948 308Z" fill="url(#orbit-back)"/>
+    <path d="M302 566C160 683 94 800 157 884C220 967 417 958 649 848L682 869C443 1007 203 1037 100 947C-21 841 98 693 302 566Z" fill="url(#orbit)"/>
+    <path d="M202 385Q197 375 211 375L296 375C364 375 404 400 429 457L478 570L400 724C369 715 344 690 328 657Z" fill="url(#y-left)"/>
+    <path d="M624 574C590 679 554 789 502 851C453 909 371 929 271 908Q264 907 267 895C279 841 319 802 365 768L464 627Z" fill="url(#y-tail)"/>
+    <path d="M741 370Q752 370 746 381L615 612C580 677 517 720 434 761L349 805C384 774 410 726 444 661L547 458C577 397 607 374 662 371Z" fill="url(#y-fold)"/>
+    <path d="M826 435Q835 435 833 448L785 684C779 712 778 734 797 748C736 750 689 721 678 677C661 612 686 515 730 464C755 441 789 435 826 435Z" fill="url(#u-inner)"/>
+    <path d="M730 464C691 511 679 553 679 605C676 681 716 729 776 745C843 764 899 731 913 667L946 509C959 446 1003 419 1062 419L1103 419Q1113 419 1111 430L1075 658C1064 750 1035 812 973 853C914 893 833 904 764 888C676 869 630 816 638 743L662 592C672 533 695 488 730 464Z" fill="url(#u-face)"/>
+    <path d="M1105 428L1069 658C1057 749 1027 808 969 847C913 885 840 896 778 884" stroke="url(#edge)" stroke-width="9" stroke-linecap="round"/>
+    <path d="M875 181Q878 170 881 182C894 240 913 265 973 282Q984 286 973 289C915 302 887 331 875 390Q872 402 869 390C857 331 834 305 776 291Q765 287 776 284C834 272 862 242 875 181Z" fill="url(#star)"/>
+    <g stroke="url(#highlight)" stroke-width="4" stroke-linecap="round">
+      <path d="M208 378L294 378C359 378 400 402 425 458"/>
+      <path d="M742 373L663 375C609 376 579 401 551 459"/>
+      <path d="M826 439C785 438 755 446 732 466"/>
+      <path d="M1104 423L1061 423C1007 423 964 448 950 510"/>
+    </g>
+  </g>
+</svg>

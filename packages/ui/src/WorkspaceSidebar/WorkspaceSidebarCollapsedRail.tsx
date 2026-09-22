@@ -1,6 +1,6 @@
 import { PanelLeftOpen } from "lucide-react";
 import { PRODUCT_DISPLAY_NAME } from "@zcode/shared";
-import appLogoUrl from "@/assets/yu-code-icon.png";
+import appLogoUrl from "@/assets/yu-code-icon.svg";
 import { Button } from "@/components/ui/button.js";
 import { ControlHintTooltip } from "@/ControlHintTooltip.js";
 import { useZCodeIntl } from "@/i18n/IntlProvider.js";

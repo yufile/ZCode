@@ -1,6 +1,6 @@
 import { cn } from "@/components/lib/utils.js";
 import { PRODUCT_DISPLAY_NAME } from "@zcode/shared";
-import yuCodeIconUrl from "@/assets/yu-code-icon.png";
+import yuCodeIconUrl from "@/assets/yu-code-icon.svg";
 
 export function WindowsTopLeftLogo({
   className,

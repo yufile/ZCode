@@ -1,4 +1,4 @@
-import yuCodeLogoUrl from "@/assets/yu-code-logo.png";
+import yuCodeLogoUrl from "@/assets/yu-code-logo.svg";
 import { cn } from "@/components/lib/utils.js";
 
 export function ZCodeAboutLogo({ className }: { className?: string }) {
