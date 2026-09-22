@@ -1,0 +1,4 @@
+interface:
+  display_name: "Upstream Sync Guardrails"
+  short_description: "Sync official core while preserving yuCode customizations"
+  default_prompt: "Use $upstream-sync-guardrails to review and synchronize official ZCode core changes without overwriting yuCode customizations."

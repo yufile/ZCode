@@ -46,6 +46,15 @@
 - 使用异步文件和网络 IO；跨包导入使用公开入口，遵守现有路径别名。
 - 禁止 UI 直接调用 Repo、Service 引用 Runtime 具体实现、跨域导入实现细节及循环依赖。
 
+## 官方核心同步与定制保护
+
+- 官方核心仓库使用 `upstream`（预期为 `https://github.com/zai-org/ZCode.git`），`origin` 用于发布 yuCode；同步前必须核对 remote、分支、提交图和工作区状态。
+- 同步官方代码前工作区必须干净，或已将本地修改保存为可恢复的提交/包含未跟踪文件的 stash。保留所有本地定制，不把官方删除视为删除本地功能的授权。
+- 默认使用 `git fetch upstream --prune`、审查 `git log`/`git diff` 后再以普通 merge 合入官方核心；只需要个别功能时使用审核后的 `git cherry-pick`。rebase、force-push 和历史改写必须得到用户明确授权。
+- 禁止用 `git reset --hard`、`git clean`、大范围 `git restore` 或大范围 `git checkout` 覆盖本地定制；冲突文件不能直接整文件接受 upstream 版本。
+- yuCode 品牌 SVG、派生图标、`specs/yucode-branding.md` 以及本地插件/MCP 清单、实现和 spec 都是受保护的定制面。涉及源 SVG 或其消费者时，重新生成 PNG/ICO/ICNS，并重新验证桌面/Web 构建。
+- 详细流程、冲突边界和验证清单见 `.agents/skills/upstream-sync-guardrails/SKILL.md`。同步完成后至少运行 `pnpm typecheck`、`pnpm lint`、`pnpm architecture:check --changed`、`pnpm fmt:check` 和 `git diff --check`，如实报告结果；未获明确授权不得自动推送。
+
 ## UI 与平台边界
 
 - 遵守 `DESIGN.md`，复用已有组件，兼顾桌面与手机 Web 的布局、交互、主题和国际化。
